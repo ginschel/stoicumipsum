@@ -49,4 +49,5 @@ python3 stoicumipsum.py -r 3 5 6 10
 This will output the lines from 3 to 5 and 6 to 10.
 Make sure that you use an even amount of arguments or you will get a syntax error.
 
-
+## Customization
+You can easily include other inputfiles than the meditationes file. Just create an inputfile with no empty lines, move it to the same directory as stoicumipsum.py and make sure that you include it in the python script by changing the value of the inputfile variable to the name of your inputfile!
