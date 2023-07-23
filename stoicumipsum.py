@@ -10,11 +10,11 @@ except:
 
 #Minimal length of stoicum ipsum text
 min_txt_lngth = 600
+inputfile = "meditationes"
 
 
 
-
-
+#booleans
 linenumbererror = False
 generalerror = False
 def giveipsum(linenumber):
@@ -26,14 +26,14 @@ def giveipsum(linenumber):
         raise Exception("Please use a line number over 0")
     elif linenumber >= numberoflines:
         linenumber = numberoflines-1
-    with open("meditationes", "r") as f:
+    with open(inputfile, "r") as f:
         lines = f.readlines()
         return lines[linenumber]
 
 txt = ""
 
 #counts line number
-with open("meditationes", "r") as f:
+with open(inputfile, "r") as f:
     numberoflines = sum(1 for lines in f)
 #checks if a line number was given
 try:
