@@ -3,7 +3,7 @@ try:
     import pyperclip
 except:
     print("You need to install pyperclip to run this program")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "pyperclip"])
+    subprocess.check_call([sys.executable, "-m", "pip3", "install", "pyperclip"])
     import pyperclip
 
 #config
@@ -50,13 +50,19 @@ try:
             
             if option == "-m":
                 for line in queue:
-                    txt += giveipsum(line)+" "
+                    txt += giveipsum(line)
                         #enlarge to or more than the minimum length
             elif option == "-l":
                 if len(queue) == 1:
                     x = 0
                     while len(txt) <= min_txt_lngth:
-                     txt += giveipsum(queue[0]+x)+" "; x+=1
+                     txt += giveipsum(queue[0]+x); x+=1
+                     #in case you want a random line to have a minimum size
+                elif len(queue) == 0:
+                    x = 0
+                    linenumber = random.randint(0, numberoflines)
+                    while len(txt) <= min_txt_lngth:
+                     txt += giveipsum(linenumber+x); x+=1;                  
                 else:
                     raise Exception("You used one argument too much with the -l command")
                #range/merge of many ranges
@@ -67,12 +73,12 @@ try:
                     while x//2!=0:
                         x/=2; 
                         if queue[y] < queue[y+1]: 
-                            for z in range(queue[y], queue[y+1]+1, 1):     txt += giveipsum(z)+" "; 
+                            for z in range(queue[y], queue[y+1]+1, 1):     txt += giveipsum(z); 
                             
                         elif queue[y] > queue[y+1]:
-                            for z in range(queue[y], queue[y-1]-1, -1):     txt += giveipsum(z)+" "; 
+                            for z in range(queue[y], queue[y-1]-1, -1):     txt += giveipsum(z); 
                         
-                        else: txt += giveipsum(queue[y])+" "; 
+                        else: txt += giveipsum(queue[y]); 
                         y+=2
 
 
