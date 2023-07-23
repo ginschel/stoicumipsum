@@ -1,6 +1,8 @@
 # stoicumipsum
 It's a simple and lightweight python script that will give you a lorem ipsum text out of Xylander's famous Latin translation and copy it into your clipboard. Therefore you can easily include it into your project. You don't have to worry about copyright issues at all since this text is roughly 500 years old. ;-)
 I think that the biggest benefit of this script is that you can use a high quality and very educational Latin text for your design projects instead of using a standard nonsense lorem ipsum text which can be a pleasant surprise for those who actually understand Latin.
+
+![howtouse](https://i.imgur.com/tvqBrNa.gif)
 ## Dependencies
 You will need to have python, pip and the pyperclip module installed.
 Don't worry. In case you don't have pyperclip installed the script will install it for you.
