@@ -42,17 +42,31 @@ try:
     temp = []
     queue = []
     #merge
-    if option == "-m" or option == "-l" or option == "-r":
+    if option == "-m" or option == "-ls" or option == "-w" or option == "-l" or option == "-r":
         try:
-            while not (sys.argv[-i] == "-m" or sys.argv[-i] == "-l" or sys.argv[-i] == "-r"):
+            while not (sys.argv[-i] == "-m" or sys.argv[-i] == "-ls" or sys.argv[-i] == "-w" or sys.argv[-i] == "-l" or sys.argv[-i] == "-r"):
                 temp.append(int(sys.argv[-i])); i+=1
             for x in range(len(temp), 0, -1): queue.append(temp[x-1]); 
-            
+           #merge 
             if option == "-m":
                 for line in queue:
                     txt += giveipsum(line)
+            elif option == "-w":
+                wordcount = 0
+                if len(queue) == 1:
+                     txt += giveipsum(random.randint(0, numberoflines))
+                elif len(queue) == 2:
+                    txt += giveipsum(queue[1])
+                else:
+                    raise Exception("You used one argument too much with the -w command")
+                for x, i in enumerate(txt):
+                    if i == " " or i ==", " or i=="; " or i==". " or i==": ":
+                        wordcount+=1
+                    if wordcount == queue[0]:
+                        txt = txt[:x]
+                
                         #enlarge to or more than the minimum length
-            elif option == "-l":
+            elif option == "-ls":
                 if len(queue) == 1:
                     x = 0
                     while len(txt) <= min_txt_lngth:
@@ -63,6 +77,17 @@ try:
                     linenumber = random.randint(0, numberoflines)
                     while len(txt) <= min_txt_lngth:
                      txt += giveipsum(linenumber+x); x+=1;                  
+                else:
+                    raise Exception("You used one argument too much with the -ln command")
+            elif option == "-l":
+                if len(queue) == 1:
+                    x = 0
+                    min_txt_lngth = queue[0]
+                    while len(txt) <= min_txt_lngth:
+                     txt += giveipsum(random.randint(0, numberoflines)+x); x+=1
+                     #in case you want a random line to have a minimum size
+                elif len(queue) == 0:
+                    raise Exception("You have to specify the length")                 
                 else:
                     raise Exception("You used one argument too much with the -l command")
                #range/merge of many ranges
