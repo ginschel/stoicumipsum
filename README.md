@@ -16,13 +16,13 @@ I made this script as easy to use as possible. In case you want a random excerpt
 python3 stoicumipsum.py
 ```
 If you want a particular number of words, use -w as an argument and your prefered word count:
-'''
+```
 python3 stoicumipsum.py -w 4
-'''
+```
 This would give you four words. For instance:
-'''
+```
 Eaedem sunt mundi vicissitudines
-'''
+```
 If you want a particular line then you should write it as an argument:
 ```
 python3 stoicumipsum.py 3
@@ -36,9 +36,9 @@ Its that easy to use. You should be with the basic usage good to go. In case you
 I even included some advanced subcommands you can use from the command line.
 ### Enlarge random line with particular minimum size
 If you want a random line with a particular minimum size, just use the -l command with your minimum character size.
-'''
+```
 python3 stoicumipsum.py -l 300
-'''
+```
 This will output a line with a minimum character size of 300.
 ### Merge
 By using "-m" you can merge all lines, which you give as arguments after that, to one final output.
